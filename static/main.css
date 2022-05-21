@@ -1,0 +1,97 @@
+/* styles */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css');
+
+@font-face {
+  font-family: XCharter;
+  src: url("/static/fonts/charter/XCharter-Roman.otf") format("opentype");
+}
+
+:root{
+  --mono-font: "JetBrains mono";
+  --base-font: 'Lato', sans-serif;
+  --link-color: navy;
+  /* --base-font: 'Macondo', cursive; */
+  /* --base-font: 'XCharter'; */
+  /* --base-font: 'Noto Sans', sans-serif; */
+}
+
+h1,h2,h3,h4,h5,h6{margin: 0;}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: var(--base-font);
+}
+a{
+  text-decoration: none;
+  border-bottom: 1px dotted navy;
+}
+a:visited{
+  color: var(--link-color);
+}
+
+main{
+  width: 95%;
+  margin: auto;  
+  border: 1px solid #ccc;
+  box-shadow: 3px 2px 3px 0px #ccc;
+  padding: 10px 20px 0px 20px;
+  min-height: 95vh;
+  margin-bottom: 10px;
+}
+header{
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: center;
+}
+header h1{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 2.2em;
+  font-weight: 700;
+}
+header span.logo{
+  font-size: 32px;
+}
+nav{
+  margin-bottom: 30px;
+}
+nav ul.menu{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul.menu li{
+  display: inline-block;
+  color: rgb(241, 238, 238);
+  background-color: #496781;
+  border: 1px solid #041052;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+nav a{
+  text-decoration: none;
+  color: white;
+  font-family: var(--mono-font);
+  padding: 10px 20px;
+  display: inline-block;
+  border-bottom: 0;
+}
+nav a:hover{
+  cursor: pointer;  
+  background: #76279c;
+}
+nav a.active{  
+  background: #27279c;
+}
+div.content{
+  display: none;   
+  margin: 10px 10px 10px 40px;
+}
+div.content.active{
+  display: block;
+
+}

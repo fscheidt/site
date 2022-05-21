@@ -2,15 +2,153 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="assets/main.css">
-    <title>Site-github.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/main.css">
+    <script src="/static/jquery.js"></script>
+    <title>Página template</title>
+    <style></style>
 </head>
 <body>
 <main>
-    <h1>Templates</h1>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?
-    </p>
+    <nav>
+        <ul class="menu">
+            <li><a data-el="index" class="active">index</a></li>
+            <li><a data-el="tags">tags</a></li>
+            <li><a data-el="examples">exemplos</a></li>
+            <li><a data-el="libs">libs</a></li>
+            <li><a data-el="text">texto</a></li>
+        </ul>
+    </nav>
+
+    <div class="content index active">
+        <header>
+            <span class="logo">
+                <i class="fas fa-home"></i>
+            </span>
+            <h1>Index</h1>
+        </header>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?
+        </p>
+    </div>
+
+    <div class="content examples">
+        <header>
+            <span class="logo">
+                <i class="fas fa-code"></i>
+            </span>
+            <h1>Examples</h1>
+        </header>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?
+        </p>
+    </div>
+
+    <div class="content libs">
+        <header>
+            <span class="logo">
+                <i class="fas fa-wrench"></i>
+            </span>
+            <h1>Bibliotecas</h1>
+        </header>
+        <p>
+            <ul>
+                <li><a target="_blank" href="https://fontawesome.com/v5/cheatsheet">FontAwesome</a></li>
+                <li><a target="_blank" href="https://jquery.com/">JQuery</a></li>
+            </ul>
+        </p>
+    </div>
+
+    
+
+    <div class="content tags">
+        <header>
+            <span class="logo">
+                <i class="fas fa-cog"></i>
+            </span>
+            <h1>Tags</h1>
+        </header>
+        <p>            
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, quaerat eligendi! Hic nostrum maxime ipsa atque veniam dicta accusantium nam quos! Non eos commodi, sunt quo fugit accusantium ab placeat.
+        </p>
+
+        <p>
+            <a target="_blank" href="https://fontawesome.com/v5/cheatsheet">Cheatsheet fontawesome</a>
+        </p>
+
+        <p>
+            <i class="fas fa-arrow-alt-circle-up"></i>
+            <i class="fas fa-arrow-alt-circle-down"></i>
+            <i class="far fa-calendar-alt"></i>
+            <i class="fas fa-caret-left"></i>
+            <i class="fas fa-caret-square-left"></i>
+            <i class="fas fa-check"></i>
+            <i class="fas fa-check-square"></i>
+            <i class="fas fa-chevron-circle-up"></i>
+            <i class="fas fa-chevron-circle-down"></i>
+            <i class="fas fa-chevron-circle-right"></i>
+            <i class="fas fa-chevron-circle-left"></i>
+            <i class="fas fa-chevron-left"></i>
+            <i class="fas fa-chevron-right"></i>
+            <i class="fas fa-cog"></i>
+            <i class="fas fa-grip-lines-vertical"></i>
+            <i class="fas fa-hourglass-half"></i>
+            <i class="fas fa-home"></i>
+            <i class="fas fa-mountain"></i>
+            <i class="fas fa-low-vision"></i>
+            <i class="fas fa-pause"></i>
+            <i class="fas fa-redo"></i>
+            <i class="fas fa-plus"></i>
+            <i class="fas fa-play"></i>
+            <i class="fas fa-sliders-h"></i>
+            <i class="fas fa-square"></i>
+            <i class="fas fa-save"></i>
+            <i class="fas fa-sort-up"></i>
+            <i class="fas fa-sort-down"></i>
+            <i class="fas fa-stopwatch"></i>
+            <i class="fas fa-sticky-note"></i>
+            <i class="fas fa-window-close"></i>
+        </p>
+    </div>
+    <div class="content text">
+        <header>
+            <span class="logo">
+                <i class="fas fa-sticky-note"></i>
+            </span>
+            <h1>Text</h1>
+        </header>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
+        
+        
+    </div>    
 </main>
 </body>
+
+<script src="/static/main.js"></script>
 </html>
