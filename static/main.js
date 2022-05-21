@@ -1,5 +1,6 @@
 /* script */
 function loadView(elHash){
+    console.log(elHash);
     let target_content = elHash.replace('#','');
     $('nav a').removeClass('active');
     $(`a[href='${elHash}']`).addClass('active');
