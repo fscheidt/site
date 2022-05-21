@@ -28,10 +28,13 @@ body{
 }
 a{
   text-decoration: none;
-  border-bottom: 1px dotted navy;
+  border-bottom: 1px dotted navy;  
 }
 a:visited{
   color: var(--link-color);
+}
+nav a:visited{
+  color: white;
 }
 
 main{
@@ -90,7 +93,7 @@ nav a.active{
 }
 div.content{
   display: none;   
-  margin: 10px 10px 10px 40px;
+  margin: 10px 10px 10px 20px;
 }
 div.content.active{
   display: block;
