@@ -159,6 +159,9 @@ div.wrapper-cards{
   grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
   grid-template-rows: auto;
 }
+div.md-content{
+  line-height: 2.0em;
+}
 figure{
     border: 3px solid rosybrown;
     text-align: center;

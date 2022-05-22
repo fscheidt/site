@@ -1,14 +1,26 @@
 /* script */
+
 const app = {
-    version: '1.63',
-    title: 'Page::',
-    path: {
-        tags: 'md/tags'
+    version: '1.67',
+    title: 'Page::',    
+    local: false,
+    prefix: '/site',
+    paths: {
+            "tags": "md/tags",
+            "css": "md/css",
+            "js": "md/js"
+    },
+    isLocal: function(url){
+        return url.indexOf('localhost') !== -1 || url.indexOf('127.0.0.1') !== -1;
     },
     loadData: function(){
         $("#app-version").text(app.version);
-        // console.log('loading data');
-    },
+        this.local = this.isLocal(document.location.href);
+        $("#app-local").text(app.local);
+        if(this.local){
+            this.prefix = '';
+        }
+    },    
     restore: function(){
         console.clear(); 
         console.log('all clear'); 
@@ -43,11 +55,19 @@ function loadView(elHash){
                 if($("#remotePage").find('.sidebar.remote').length > 0){
                     // console.log(`\t-> remote menu found`);
                     let fname = $("#remotePage").find('.sidebar.remote:first').data('md');
-                    let md_uri = `${app.path.tags}/${fname}.md`
-                    // console.log(`\t-> loading resource: ${md_uri}`);
+                    // let md_uri = `${app.path.tags}/${fname}.md`
+                    let md_uri = `${app.paths[activate_content]}/${fname}.md`;
+                    console.log(`\t-> loading resource: ${md_uri}`);
                     $.get( md_uri, function( data ) {          
                         var converter = new showdown.Converter();
                         $(".sidebar.remote").html(converter.makeHtml(data));
+                        if(!app.local){
+                            let uri_links = $(".sidebar.remote a");
+                            uri_links.each(function(idx, el){
+                                console.log(el);
+                                $(this).attr('href',`${app.prefix}/$(this).attr('href')`);
+                            });
+                        }
                         sessionStorage.setItem(data_key, $("#remotePage").html());
                     },'text');
                 }else{
