@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css');
-
 @font-face {
   font-family: XCharter;
   src: url("/static/fonts/charter/XCharter-Roman.otf") format("opentype");
@@ -18,7 +18,14 @@
   /* --base-font: 'XCharter'; */
   /* --base-font: 'Noto Sans', sans-serif; */
 }
-
+xmp{
+  font-family: 'Fira Code', monospace;
+  padding: 0;
+  margin: 0;
+}
+code{
+  font-family: 'Fira Code', monospace;
+}
 h1,h2,h3,h4,h5,h6{margin: 0;}
 
 body{
@@ -114,7 +121,7 @@ header.cheader{
 }
 div.sidebar{
   grid-area: sidebar;
-  background: #fefec9;
+  background: #c9fee5;
 }
 div.sidebar ul.menu li{
   color: #763535;
@@ -126,7 +133,7 @@ div.sidebar ul.menu a{
 article.cbody{
   padding: 10px 20px;
   grid-area: article;
-  background: #bef2e0;
+  background: #e8f6f1;
   display: none;
 }
 article.cbody.active{

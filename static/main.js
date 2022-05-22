@@ -1,6 +1,6 @@
 /* script */
 const app = {
-    version: '1.33'
+    version: '1.41'
 }
 function loadView(elHash){    
     let target_content = elHash.replace('#','');
@@ -14,16 +14,26 @@ $(document).ready(function(){
 
     $("a.remote").click(function(){
         let page = $(this).data('h');
-        console.log(page);        
-        // $("#remotePage").load('pages/tools.html #remoteContent');
-        $("#remotePage").load('pages/tools.html div.content');
+        $('nav a').removeClass('active');
+        $(this).addClass('active');
+        $('.content').hide();
+        window.location.hash = `#${page}`;
+        
+        $("#remotePage").load(`pages/${page}.html div.content`);
+        // $("#remotePage").load('pages/tools.html div.content');
     });
 
-    $(".sidebar .menu a").click(function(){
+    $("body").on('click','.sidebar .menu a',function(){
         let target = $(this).data('h');
         $('article').hide();
         $(`article.cbody.${target}`).show();
     });
+
+    // $(".sidebar .menu a").click(function(){
+    //     let target = $(this).data('h');
+    //     $('article').hide();
+    //     $(`article.cbody.${target}`).show();
+    // });
     if (window.location.hash.length>1)
         loadView(window.location.hash);
     $(window).on('hashchange', function(e){
