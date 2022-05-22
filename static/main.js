@@ -2,7 +2,7 @@
 const app = {
     version: '1.41'
 }
-function loadView(elHash){    
+function loadView(elHash, r=false){    
     let target_content = elHash.replace('#','');
     $('nav a').removeClass('active');
     $(`a[href='${elHash}']`).addClass('active');
@@ -20,23 +20,21 @@ $(document).ready(function(){
         window.location.hash = `#${page}`;
         
         $("#remotePage").load(`pages/${page}.html div.content`);
-        // $("#remotePage").load('pages/tools.html div.content');
     });
 
+    $("#remotePage").bind("DOMSubtreeModified", function() {
+
+    });
     $("body").on('click','.sidebar .menu a',function(){
         let target = $(this).data('h');
         $('article').hide();
         $(`article.cbody.${target}`).show();
     });
-
-    // $(".sidebar .menu a").click(function(){
-    //     let target = $(this).data('h');
-    //     $('article').hide();
-    //     $(`article.cbody.${target}`).show();
-    // });
     if (window.location.hash.length>1)
         loadView(window.location.hash);
     $(window).on('hashchange', function(e){
         loadView(window.location.hash);
     });
+    
 });
+
