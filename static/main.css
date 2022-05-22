@@ -120,6 +120,25 @@ nav ul.menu li{
   border-radius: 2px;
   margin-right: 10px;
 }
+div.slides-group{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+summary.title{
+  font-family: var(--mono-font);
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 20px 0px;
+}
+summary.title:hover{
+  background-color: #6affb9;
+}
+object.pdf{
+  border: 5px solid #aa1f1f;
+  width: 100%;
+  height: 700px;
+}
 .hmenu li{
   display: inline-block;
   border-radius: 2px;
