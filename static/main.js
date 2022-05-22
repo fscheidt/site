@@ -1,7 +1,10 @@
 /* script */
 const app = {
-    version: '1.45',
-    title: 'Page::'
+    version: '1.47',
+    title: 'Page::',
+    path: {
+        tags: 'md/tags'
+    }
 }
 const ui = {
     content: '.content',
@@ -24,15 +27,34 @@ function loadView(elHash){
 $(document).ready(function(){
     $("#app-version").text(app.version);
 
-    // $("#remotePage").bind("DOMSubtreeModified", function() {});
+    // $("#remotePage33").bind("DOMSubtreeModified", function() {
+    //     console.log('remote detected');
+    // });
+    $("#remotePage").bind('DOMNodeInserted', function(){
+        console.log('remote detected');
+        $("#remotePage").unbind('DOMNodeInserted');
+        if($("#remotePage").find('.sidebar.remote').length > 0){
+            console.log('remote menu found');
+            let fname = $("#remotePage").find('.sidebar.remote:first').data('md');
+            let md_uri = `${app.path.tags}/${fname}.md`
+            console.log(md_uri);
+            $.get( md_uri, function( data ) {          
+                var converter = new showdown.Converter();
+                $(".sidebar.remote").html(converter.makeHtml(data));
+            },'text');
+        }
+    });
 
-    $("body").on('click','.sidebar .menu a.md',function(){
-        let fname = $(this).data('md');
-        let md_uri = `pages/md/${fname}.md`;
+    $("body").on('click','.sidebar.remote a',function(e){
+        // let fname = $(this).data('md');
+        // let md_uri = `pages/md/${fname}.md`;
+        let md_uri = $(this).attr('href');
         $.get( md_uri, function( data ) {          
             var converter = new showdown.Converter();
             $(".md-content").html(converter.makeHtml(data));
         },'text');
+        e.stopPropagation();
+        e.preventDefault();
     });
     if (window.location.hash.length>1)
         loadView(window.location.hash);

@@ -138,6 +138,13 @@ div.sidebar ul.menu a{
   cursor: pointer;  
   background: #6affb9;
 }
+.sidebar ul, ol{
+  list-style: none;
+  padding: 0px 10px;
+}
+.sidebar li{
+  padding: 10px;
+}
 article.cbody{
   padding: 10px 20px;
   grid-area: article;
