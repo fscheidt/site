@@ -176,3 +176,12 @@ figcaption{
   padding: 20px 0px 0px 0px;
   font-family: 'Macondo', cursive;
 }
+table.brief{
+  border-spacing: 20px;
+  font-family: var(--mono-font);
+}
+table.brief td:nth-child(1){
+  color: navy;
+  font-weight: bold;
+  text-align: right;
+}
