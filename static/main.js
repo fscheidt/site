@@ -1,10 +1,12 @@
 /* script */
 
 const app = {
-    version: '1.72',
+    version: '1.73',
+    site: 'https://fscheidt.github.io/site',
+    repo: 'https://github.com/fscheidt/site',
     title: 'WEB_I Code::',
-    local: false,
     prefix: '/site',
+    local: false,
     paths: {
             "tags": "md/tags",
             "css": "md/css",
@@ -15,6 +17,8 @@ const app = {
     },
     loadData: function(){
         $("#app-version").text(app.version);
+        $("#app-site").text(app.site).attr('href',app.site);
+        $("#app-repo").text(app.repo).attr('href',app.repo);
         this.local = this.isLocal(document.location.href);
         $("#app-local").text(app.local);
         if(this.local){
@@ -58,7 +62,7 @@ function loadView(elHash){
                     let fname = $("#remotePage").find('.sidebar.remote:first').data('md');
                     // let md_uri = `${app.path.tags}/${fname}.md`
                     let md_uri = `${app.paths[activate_content]}/${fname}.md`;
-                    console.log(`\t-> loading resource: ${md_uri}`);
+                    // console.log(`\t-> loading resource: ${md_uri}`);
                     $.get( md_uri, function( data ) {          
                         var converter = new showdown.Converter();
                         $(".sidebar.remote").html(converter.makeHtml(data));
@@ -77,7 +81,6 @@ function loadView(elHash){
                     sessionStorage.setItem(data_key, $("#remotePage").html());
                 }
             });
-            // $("#remotePage").show();
         }
         $("#remotePage").show();
         $("#remotePage .content").show();
