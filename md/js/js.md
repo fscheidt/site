@@ -1,2 +1,1 @@
-- [array](/site/md/js/array.md)
-- [array-local](/md/js/array.md)
+- [array](/md/js/array.md)

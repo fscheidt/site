@@ -1,2 +1,1 @@
-- [grid](/site/md/css/grid.md)
-- [grid-local](/md/css/grid.md)
+- [grid](/md/css/grid.md)

@@ -1,8 +1,8 @@
 /* script */
 
 const app = {
-    version: '1.68',
-    title: 'Page::',    
+    version: '1.72',
+    title: 'WEB_I Code::',
     local: false,
     prefix: '/site',
     paths: {
@@ -19,6 +19,7 @@ const app = {
         $("#app-local").text(app.local);
         if(this.local){
             this.prefix = '';
+            this.title = `(L) ${this.title}`;
         }
     },    
     restore: function(){
@@ -64,8 +65,10 @@ function loadView(elHash){
                         if(!app.local){
                             let uri_links = $(".sidebar.remote a");
                             uri_links.each(function(idx, el){
-                                console.log(el);
-                                $(this).attr('href',`${app.prefix}${$(this).attr('href')}`);
+                                // console.log(el);
+                                let href = $(this).attr('href');
+                                if (!href.startsWith(app.prefix))
+                                    $(this).attr('href',`${app.prefix}${href}`);
                             });
                         }
                         sessionStorage.setItem(data_key, $("#remotePage").html());
