@@ -1,7 +1,7 @@
 /* script */
 
 const app = {
-    version: '1.67',
+    version: '1.68',
     title: 'Page::',    
     local: false,
     prefix: '/site',
@@ -65,7 +65,7 @@ function loadView(elHash){
                             let uri_links = $(".sidebar.remote a");
                             uri_links.each(function(idx, el){
                                 console.log(el);
-                                $(this).attr('href',`${app.prefix}/$(this).attr('href')`);
+                                $(this).attr('href',`${app.prefix}${$(this).attr('href')}`);
                             });
                         }
                         sessionStorage.setItem(data_key, $("#remotePage").html());
