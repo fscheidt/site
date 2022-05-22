@@ -1,34 +1,38 @@
 /* script */
 const app = {
-    version: '1.41'
+    version: '1.45',
+    title: 'Page::'
 }
-function loadView(elHash, r=false){    
-    let target_content = elHash.replace('#','');
-    $('nav a').removeClass('active');
-    $(`a[href='${elHash}']`).addClass('active');
-    $('.content').hide();
-    $(`.${target_content}`).fadeIn(700);
+const ui = {
+    content: '.content',
+    nav_entry: 'nav a',
+}
+function loadView(elHash){    
+    let activate_content = elHash.replace('#','');
+    let entry_el = $(`a[href='${elHash}']`);
+    $(ui.nav_entry).removeClass('active');
+    $(entry_el).addClass('active');
+    if($(entry_el).hasClass('remote')){
+        let page = `${activate_content}.html`;
+        $("#remotePage").load(`pages/${page} div.content`);
+        $("#remotePage").show();
+    }
+    $(ui.content).hide();
+    $(`.${activate_content}`).fadeIn(700);
+    document.title = `${app.title}${activate_content}`;
 }
 $(document).ready(function(){
     $("#app-version").text(app.version);
 
-    $("a.remote").click(function(){
-        let page = $(this).data('h');
-        $('nav a').removeClass('active');
-        $(this).addClass('active');
-        $('.content').hide();
-        window.location.hash = `#${page}`;
-        
-        $("#remotePage").load(`pages/${page}.html div.content`);
-    });
+    // $("#remotePage").bind("DOMSubtreeModified", function() {});
 
-    $("#remotePage").bind("DOMSubtreeModified", function() {
-
-    });
-    $("body").on('click','.sidebar .menu a',function(){
-        let target = $(this).data('h');
-        $('article').hide();
-        $(`article.cbody.${target}`).show();
+    $("body").on('click','.sidebar .menu a.md',function(){
+        let fname = $(this).data('md');
+        let md_uri = `pages/md/${fname}.md`;
+        $.get( md_uri, function( data ) {          
+            var converter = new showdown.Converter();
+            $(".md-content").html(converter.makeHtml(data));
+        },'text');
     });
     if (window.location.hash.length>1)
         loadView(window.location.hash);

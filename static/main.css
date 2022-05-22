@@ -13,18 +13,22 @@
 :root{
   --mono-font: "JetBrains mono";
   --base-font: 'Lato', sans-serif;
+  --code-font: 'Fira Code', monospace;
   --link-color: navy;
   /* --base-font: 'Macondo', cursive; */
   /* --base-font: 'XCharter'; */
   /* --base-font: 'Noto Sans', sans-serif; */
 }
+#remotePage{
+  display: none;
+}
 xmp{
-  font-family: 'Fira Code', monospace;
+  font-family: var(--code-font);
   padding: 0;
   margin: 0;
 }
-code{
-  font-family: 'Fira Code', monospace;
+pre, code{
+  font-family: var(--code-font);
 }
 h1,h2,h3,h4,h5,h6{margin: 0;}
 
@@ -94,11 +98,11 @@ ul.menu a{
   border-bottom: 0;
   cursor: pointer;
 }
-nav ul.menu a:hover{
+ul.menu a:hover{
   cursor: pointer;  
   background: #76279c;
 }
-nav ul.menu a.active{  
+ul.menu a.active{  
   background: #27279c;
 }
 div.content{
@@ -129,6 +133,10 @@ div.sidebar ul.menu li{
 }
 div.sidebar ul.menu a{
   color: #763535;
+}
+.sidebar .menu a:hover{
+  cursor: pointer;  
+  background: #6affb9;
 }
 article.cbody{
   padding: 10px 20px;
