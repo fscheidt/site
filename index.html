@@ -10,21 +10,25 @@
     <title>Page</title>
 </head>
 <body>
-<main>
-    <nav>
-        <ul class="menu">
-            <li><a href="#index" class="active"><i class="fas fa-home"></i></a></li>
-            <li><a href="#tags" class="remote">HTML</a></li>
-            <li><a href="#css" class="remote">CSS</a></li>
-            <li><a href="#js" class="remote">JS</a></li>
-            <li><a href="#examples">exemplos</a></li>
-            <li><a href="#text">texto</a></li>
-            <li><a href="#images">images</a></li>
-            <li><a href="#tools" class="remote">tools</a></li>
-            <li><a href="#info"><i class="fas fa-info-circle"></i></a></li>            
-            <li><a onclick="app.restore();"><i class="fas fa-undo-alt"></i></a></li>            
-        </ul>
-    </nav>
+    
+<main class="app">
+
+<nav class="navbar">
+    <ul class="menu">
+        <li><a href="#index" class="active"><i class="fas fa-home"></i></a></li>
+        <li><a href="#tags" class="remote">HTML</a></li>
+        <li><a href="#css" class="remote">CSS</a></li>
+        <li><a href="#js" class="remote">JS</a></li>
+        <li><a href="#examples">exemplos</a></li>
+        <li><a href="#text">texto</a></li>
+        <li><a href="#images">images</a></li>
+        <li><a href="#tools" class="remote">tools</a></li>
+        <li><a href="#info"><i class="fas fa-info-circle"></i></a></li>            
+        <li><a onclick="app.restore();"><i class="fas fa-undo-alt"></i></a></li>            
+    </ul>
+</nav>
+
+<div class="conteudo">
 
     <div id="remotePage"></div>
 
@@ -158,6 +162,9 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, praesentium soluta quo modi cumque dolor at animi laborum alias perferendis delectus. Delectus ex doloribus unde officia aliquid eius voluptatum quos?</p>
     </div>    
+
+
+</div>
 
 </main>
 

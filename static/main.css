@@ -53,9 +53,36 @@ main{
   margin: auto;  
   border: 1px solid #ccc;
   box-shadow: 3px 2px 3px 0px #ccc;
-  padding: 10px 20px 0px 20px;
+  /* padding: 10px 20px 0px 20px; */
   min-height: 95vh;
   margin-bottom: 10px;
+  
+}
+@media (min-width: 1366px) {
+  main{
+    padding: 10px 20px 0px 20px;
+
+  }
+}
+main.app{
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas: 
+  "menu"
+  "conteudo";
+}
+.md-content pre{
+  border: 1px solid white;
+  padding: 5px;
+  
+}
+nav.navbar{
+  grid-area: menu;
+  background: #496781;
+  padding: 10px;
+}
+div.conteudo{
+  grid-area: conteudo;
 }
 header{
   display: grid;
@@ -72,7 +99,7 @@ header span.logo{
   font-size: 32px;
 }
 nav{
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 ul.menu{
   list-style: none;
@@ -93,7 +120,7 @@ nav ul.menu li{
 ul.menu a{
   text-decoration: none;
   color: white;
-  padding: 10px 20px;
+  padding: 5px 10px;
   display: inline-block;
   border-bottom: 0;
   cursor: pointer;
@@ -107,7 +134,7 @@ ul.menu a.active{
 }
 div.content{
   display: none;   
-  margin: 10px 10px 10px 20px;
+  /* margin: 10px 10px 10px 20px; */
 }
 div.content.active{
   display: block;
@@ -118,7 +145,8 @@ div.content.cgrid{
   grid-template-areas: 
   "header header" 
   "sidebar article";
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: min-content 1fr;
+  overflow-x: auto;
 }
 header.cheader{
   grid-area: header;
@@ -155,9 +183,18 @@ article.cbody.active{
   display: block;
 }
 div.wrapper-cards{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-  grid-template-rows: auto;
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+  /* grid-template-rows: auto; */
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1366px) {
+  div.wrapper-cards{   
+    /* grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));    */
+    display: flex;
+    flex-direction: column;
+  }
 }
 div.md-content, #remoteContent{
   line-height: 2.0em;
