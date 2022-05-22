@@ -159,7 +159,7 @@ div.wrapper-cards{
   grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
   grid-template-rows: auto;
 }
-div.md-content{
+div.md-content, #remoteContent{
   line-height: 2.0em;
 }
 figure{
