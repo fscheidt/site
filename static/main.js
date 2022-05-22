@@ -1,6 +1,6 @@
 /* script */
 const app = {
-    version: '1.47',
+    version: '1.48',
     title: 'Page::',
     path: {
         tags: 'md/tags'
