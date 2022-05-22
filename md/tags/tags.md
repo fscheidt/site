@@ -1,6 +1,6 @@
-- [article1](/md/tags/article.md)
-- [footer1](/md/tags/footer.md)
 - [article](/site/md/tags/article.md)
 - [footer](/site/md/tags/footer.md)
 - [header](/site/md/tags/header.md)
 - [section](/site/md/tags/section.md)
+- [article-local](/md/tags/article.md)
+- [footer-local](/md/tags/footer.md)

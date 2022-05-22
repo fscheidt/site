@@ -1,9 +1,19 @@
 /* script */
 const app = {
-    version: '1.59',
+    version: '1.62',
     title: 'Page::',
     path: {
         tags: 'md/tags'
+    },
+    loadData: function(){
+        $("#app-version").text(app.version);
+        // console.log('loading data');
+    },
+    restore: function(){
+        console.clear(); 
+        console.log('all clear'); 
+        sessionStorage.clear();
+        document.location.reload(true);        
     }
 }
 const ui = {
@@ -17,34 +27,38 @@ function loadView(elHash){
     $(entry_el).addClass('active');
     if($(entry_el).hasClass('remote')){
         let page = `${activate_content}.html`;
-        console.log(`Remote page: ${page}`)
+        // console.log(`Remote page: ${page}`)
         let data_key = `data_${activate_content}`;
         let data_ss = sessionStorage.getItem(data_key);
         if(data_ss!=null && data_ss.length>0){
-            console.log(`\t[${data_key}] found on session`);
-            console.log(`\t${data_ss.slice(0,120)}`)
+            // console.log(`\t[${data_key}] found on session`);
+            // console.log(`\t${data_ss.slice(0,120)}`)
             $("#remotePage").html(data_ss);
-            console.log(`\t[${data_key}] restored!`);
-            $("#remotePage").show();
+            // console.log(`\t[${data_key}] restored!`);
         }
         else{
-            console.log(`[${data_key}] is Empty!!`);
+            // console.log(`[${data_key}] is Empty!!`);
             $("#remotePage").load(`pages/${page} div.content`, function(){
-                console.log('\nLOADING REMOTE\n');
+                // console.log('\nLOADING REMOTE\n');
                 if($("#remotePage").find('.sidebar.remote').length > 0){
-                    console.log(`\t-> remote menu found`);
+                    // console.log(`\t-> remote menu found`);
                     let fname = $("#remotePage").find('.sidebar.remote:first').data('md');
                     let md_uri = `${app.path.tags}/${fname}.md`
-                    console.log(`\t-> loading resource: ${md_uri}`);
+                    // console.log(`\t-> loading resource: ${md_uri}`);
                     $.get( md_uri, function( data ) {          
                         var converter = new showdown.Converter();
                         $(".sidebar.remote").html(converter.makeHtml(data));
+                        sessionStorage.setItem(data_key, $("#remotePage").html());
                     },'text');
+                }else{
+                    sessionStorage.setItem(data_key, $("#remotePage").html());
                 }
             });
-            $("#remotePage").show();
-            sessionStorage.setItem(data_key, $("#remotePage").html());
+            // $("#remotePage").show();
         }
+        $("#remotePage").show();
+        $("#remotePage .content").show();
+        $("#remotePage .content").attr('display', 'block');
     }
     $(ui.content).hide();
     $(`.${activate_content}`).fadeIn(700);
@@ -52,11 +66,9 @@ function loadView(elHash){
 }
 $(document).ready(function(){
 
-    $("#app-version").text(app.version);
+    app.loadData();
 
     $("body").on('click','.sidebar.remote a',function(e){
-        // let fname = $(this).data('md');
-        // let md_uri = `pages/md/${fname}.md`;
         let md_uri = $(this).attr('href');
         $.get( md_uri, function( data ) {          
             var converter = new showdown.Converter();
