@@ -12,6 +12,13 @@ function loadView(elHash){
 $(document).ready(function(){
     $("#app-version").text(app.version);
 
+    $("a.remote").click(function(){
+        let page = $(this).data('h');
+        console.log(page);        
+        // $("#remotePage").load('pages/tools.html #remoteContent');
+        $("#remotePage").load('pages/tools.html div.content');
+    });
+
     $(".sidebar .menu a").click(function(){
         let target = $(this).data('h');
         $('article').hide();
