@@ -1,7 +1,7 @@
 /* script */
 
 const app = {
-    version: '1.75',
+    version: '1.77',
     site: 'https://fscheidt.github.io/site',
     repo: 'https://github.com/fscheidt/site',
     title: 'WEB_I Code::',
