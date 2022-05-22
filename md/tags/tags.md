@@ -1,3 +1,5 @@
+- [article1](/md/tags/article.md)
+- [footer1](/md/tags/footer.md)
 - [article](/site/md/tags/article.md)
 - [footer](/site/md/tags/footer.md)
 - [header](/site/md/tags/header.md)
