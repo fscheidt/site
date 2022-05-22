@@ -1,6 +1,6 @@
 /* script */
 const app = {
-    version: '1.29'
+    version: '1.33'
 }
 function loadView(elHash){    
     let target_content = elHash.replace('#','');
