@@ -89,6 +89,11 @@ nav.navbar{
 div.conteudo{
   grid-area: conteudo;
 }
+@media (min-width: 1024px) {
+  div.conteudo{
+    padding: 10px 20px;
+  }
+}
 header{
   display: grid;
   grid-template-columns: 56px 1fr;

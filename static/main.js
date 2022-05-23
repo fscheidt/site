@@ -1,7 +1,13 @@
 /* script */
-
+const clientData = {
+    screen: `${window.screen.availWidth} x ${window.screen.availHeight}`,
+    agent: navigator.userAgent.toLowerCase(),
+    tohtml: functio1366n(){
+        return `<p>${this.screen}</p><p>${this.agent}</p>`
+    }
+}
 const app = {
-    version: '1.78',
+    version: '1.80',
     site: 'https://fscheidt.github.io/site',
     repo: 'https://github.com/fscheidt/site',
     title: 'WEB_I Code::',
@@ -16,11 +22,14 @@ const app = {
         return url.indexOf('localhost') !== -1 || url.indexOf('127.0.0.1') !== -1;
     },
     loadData: function(){
-        $("#app-version").text(app.version);
-        $("#app-site").text(app.site).attr('href',app.site);
-        $("#app-repo").text(app.repo).attr('href',app.repo);
+        this.client = navigator.userAgent.toLowerCase();
         this.local = this.isLocal(document.location.href);
-        $("#app-local").text(app.local);
+        $("#app-version").text(this.version);
+        $("#app-site").text(this.site).attr('href',this.site);
+        $("#app-repo").text(app.repo).attr('href',app.repo);
+        $("#app-local").text(this.local);
+        $("#app-client").html(clientData.tohtml());
+        
         if(this.local){
             this.prefix = '';
             this.title = `(L) ${this.title}`;
