@@ -6,9 +6,19 @@
             "aula": 1
         },
         {
+            "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-aula-02.pdf",
+            "title": "Aula 02 - Listas",
+            "aula": 2
+        },
+        {
             "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-aula-03-css.pdf",
             "title": "Aula 02 - Introdução CSS",
             "aula": 2
-        }
+        },
+        {
+            "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-aula-03-tabelas.pdf",
+            "title": "Aula 03 - Tabelas",
+            "aula": 3
+        }        
     ]
 }
