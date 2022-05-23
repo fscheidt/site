@@ -332,6 +332,9 @@ table.brief td:nth-child(1){
 .fail{
   color: #fe8443 !important;
 }
+.pending{
+  color: #a1a1a1 !important;
+}
 .svgicon{
   width: 24px;
   height: 24px;
