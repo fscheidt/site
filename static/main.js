@@ -11,8 +11,36 @@ const clientData = {
         </dl>`
     }
 }
+function getData(){
+    $.getJSON( "pages/data.json", function( data ) {
+
+        $.each( data, function( key, val ) {
+            // console.log("key: ", key);
+            // console.log("Val: ", val);         
+            let slides = data[key];
+            slides.forEach(el => {
+                // console.log(el.title);
+                // console.log(el.aula);
+                // console.log(el.url);
+                let pdf_el = `<object class="pdf" data="${el.url}" type='application/pdf'></object>`;
+                if(clientData.isAndroid){
+                    pdf_el = `<iframe class="gviewer" src="http://docs.google.com/gview?embedded=true&url=${url}&amp;embedded=true"></iframe>`;
+                }
+                $("<details/>", {                                
+                    class: 'sld',
+                    html: `<summary class="title">
+                    ${el.title}
+                    </summary>
+                    ${pdf_el}
+                    `
+                  }).appendTo("#slide-set");
+            });
+
+        });
+    })
+}
 const app = {
-    version: '1.80',
+    version: '1.84',
     site: 'https://fscheidt.github.io/site',
     repo: 'https://github.com/fscheidt/site',
     title: 'WEB_I Code::',
@@ -34,7 +62,6 @@ const app = {
         $("#app-repo").text(app.repo).attr('href',app.repo);
         $("#app-local").text(this.local);
         $("#app-client").html(clientData.tohtml());
-        
         if(this.local){
             this.prefix = '';
             this.title = `(L) ${this.title}`;
@@ -56,7 +83,11 @@ function loadView(elHash){
     let entry_el = $(`a[href='${elHash}']`);
     $(ui.nav_entry).removeClass('active');
     $(entry_el).addClass('active');
-    if($(entry_el).hasClass('remote')){
+    // console.log("activate_content: " + activate_content);
+    if(activate_content == 'slides'){
+        getData();
+    }
+    else if($(entry_el).hasClass('remote')){
         let page = `${activate_content}.html`;
         // console.log(`Remote page: ${page}`)
         let data_key = `data_${activate_content}`;

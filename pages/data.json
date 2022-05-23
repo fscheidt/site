@@ -1,0 +1,14 @@
+{
+    "slides": [
+        {
+            "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-aula-01.pdf",
+            "title": "Aula 01 - Introdução HTML",
+            "aula": 1
+        },
+        {
+            "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-aula-03-css.pdf",
+            "title": "Aula 02 - Introdução CSS",
+            "aula": 2
+        }
+    ]
+}
