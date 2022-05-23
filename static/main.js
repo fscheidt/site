@@ -24,7 +24,7 @@ function getData(){
                 // console.log(el.url);
                 let pdf_el = `<object class="pdf" data="${el.url}" type='application/pdf'></object>`;
                 if(clientData.isAndroid){
-                    pdf_el = `<iframe class="gviewer" src="http://docs.google.com/gview?embedded=true&url=${url}&amp;embedded=true"></iframe>`;
+                    pdf_el = `<iframe class="gviewer" src="http://docs.google.com/gview?embedded=true&url=${el.url}&amp;embedded=true"></iframe>`;
                 }
                 $("<details/>", {                                
                     class: 'sld',
@@ -40,7 +40,7 @@ function getData(){
     })
 }
 const app = {
-    version: '1.84',
+    version: '1.85',
     site: 'https://fscheidt.github.io/site',
     repo: 'https://github.com/fscheidt/site',
     title: 'WEB_I Code::',
