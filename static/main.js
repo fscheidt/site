@@ -15,13 +15,8 @@ function getData(){
     $.getJSON( "pages/data.json", function( data ) {
         $("#slide-set").html('');
         $.each( data, function( key, val ) {
-            // console.log("key: ", key);
-            // console.log("Val: ", val);         
             let slides = data[key];
             slides.forEach(el => {
-                // console.log(el.title);
-                // console.log(el.aula);
-                // console.log(el.url);
                 let pdf_el = `<object class="pdf" data="${el.url}" type='application/pdf'></object>`;
                 if(clientData.isAndroid){
                     pdf_el = `<iframe class="gviewer" src="https://docs.google.com/gview?embedded=true&url=${el.url}&amp;embedded=true"></iframe>`;
@@ -31,11 +26,9 @@ function getData(){
                     html: `<summary class="title">
                     ${el.title}
                     </summary>
-                    ${pdf_el}
-                    `
+                    ${pdf_el}`
                   }).appendTo("#slide-set");
             });
-
         });
     })
 }
