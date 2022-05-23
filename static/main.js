@@ -13,7 +13,7 @@ const clientData = {
 }
 function getData(){
     $.getJSON( "pages/data.json", function( data ) {
-
+        $("#slide-set").html('');
         $.each( data, function( key, val ) {
             // console.log("key: ", key);
             // console.log("Val: ", val);         
@@ -40,7 +40,7 @@ function getData(){
     })
 }
 const app = {
-    version: '1.86',
+    version: '1.87',
     site: 'https://fscheidt.github.io/site',
     repo: 'https://github.com/fscheidt/site',
     title: 'WEB_I Code::',
