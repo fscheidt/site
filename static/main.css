@@ -100,6 +100,19 @@ header{
   align-items: center;
   margin: 20px 0px;
 }
+dl{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: min-content 600px;
+}
+dd{
+  justify-self: left;
+  margin: 0;
+}
+dt{
+  font-weight: bold;
+  justify-self: right;
+}
 header h1{
   font-family: 'Noto Sans', sans-serif;
   font-size: 2.2em;

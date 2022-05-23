@@ -2,8 +2,13 @@
 const clientData = {
     screen: `${window.screen.availWidth} x ${window.screen.availHeight}`,
     agent: navigator.userAgent.toLowerCase(),
+    isAndroid: /(android)/i.test(navigator.userAgent),
     tohtml: function(){
-        return `<p>${this.screen}</p><p>${this.agent}</p>`
+        return `<dl>
+        <dt>screen</dt><dd>${this.screen}</dd>
+        <dt>mobile</dt><dd>${this.isAndroid}</dd>
+        <dt>agent</dt><dd>${this.agent}</dd>
+        </dl>`
     }
 }
 const app = {
