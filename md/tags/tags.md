@@ -1,4 +1,0 @@
-- [article](/md/tags/article.md)
-- [footer](/md/tags/footer.md)
-- [header](/md/tags/header.md)
-- [section](/md/tags/section.md)

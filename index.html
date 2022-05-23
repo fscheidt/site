@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="static/main.css">
+    <!-- <link rel="stylesheet" href="static/css/idea.css"> -->
+    <!-- <link rel="stylesheet" href="static/css/agate.css"> -->
+    <link rel="stylesheet" href="static/css/googlecode.css">
     <script src="static/jquery.js"></script>
     <script src="static/markdown/showdown.min.js"></script>
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <title>Page</title>
 </head>
 <body>
@@ -16,7 +22,7 @@
 <nav class="navbar">
     <ul class="menu">
         <li><a href="#index" class="active"><i class="fas fa-home"></i></a></li>
-        <li><a href="#tags" class="remote">HTML</a></li>
+        <li><a href="#html" class="remote">HTML</a></li>
         <li><a href="#css" class="remote">CSS</a></li>
         <li><a href="#js" class="remote">JS</a></li>
         <li><a href="#slides">Slides</a></li>
@@ -72,6 +78,9 @@
         </header>        
         <p>Exemplos de códigos de <a href="https://github.com/fscheidt/web1-22" target="_blank">Desenvolvimento Web I</a>
         </p>
+
+        <!-- <pre><code class="language-css css">a{color:red;}</code></pre> -->
+
     </div>
 
     <div class="content slides">
@@ -171,5 +180,6 @@ new gridjs.Grid({
 
 </script>
 <script src="static/main.js"></script>
+<script>hljs.highlightAll();</script>
 </body>
 </html>

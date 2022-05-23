@@ -33,14 +33,14 @@ function getData(){
     })
 }
 const app = {
-    version: '1.87',
+    version: '1.91',
     site: 'https://fscheidt.github.io/site',
     repo: 'https://github.com/fscheidt/site',
-    title: 'WEB_I Code::',
+    title: 'WEB1',
     prefix: '/site',
     local: false,
     paths: {
-            "tags": "md/tags",
+            "html": "md/html",
             "css": "md/css",
             "js": "md/js"
     },
@@ -57,7 +57,7 @@ const app = {
         $("#app-client").html(clientData.tohtml());
         if(this.local){
             this.prefix = '';
-            this.title = `(L) ${this.title}`;
+            this.title = `🚩 ${this.title}`;
         }
     },    
     restore: function(){
@@ -82,7 +82,8 @@ function loadView(elHash){
     }
     else if($(entry_el).hasClass('remote')){
         let page = `${activate_content}.html`;
-        // console.log(`Remote page: ${page}`)
+        console.log(`Content: ${activate_content}`)
+        console.log(`Remote page: ${page}`)
         let data_key = `data_${activate_content}`;
         let data_ss = sessionStorage.getItem(data_key);
         if(data_ss!=null && data_ss.length>0){
@@ -98,7 +99,6 @@ function loadView(elHash){
                 if($("#remotePage").find('.sidebar.remote').length > 0){
                     // console.log(`\t-> remote menu found`);
                     let fname = $("#remotePage").find('.sidebar.remote:first').data('md');
-                    // let md_uri = `${app.path.tags}/${fname}.md`
                     let md_uri = `${app.paths[activate_content]}/${fname}.md`;
                     // console.log(`\t-> loading resource: ${md_uri}`);
                     $.get( md_uri, function( data ) {          
@@ -126,7 +126,7 @@ function loadView(elHash){
     }
     $(ui.content).hide();
     $(`.${activate_content}`).fadeIn(700);
-    document.title = `${app.title}${activate_content}`;
+    document.title = `${app.title} ➱ ${activate_content}`;
 }
 $(document).ready(function(){
 
@@ -137,9 +137,26 @@ $(document).ready(function(){
         $.get( md_uri, function( data ) {          
             var converter = new showdown.Converter();
             $(".md-content").html(converter.makeHtml(data));
+            
         },'text');
         e.stopPropagation();
         e.preventDefault();
+    });
+    $("#remotePage").on('DOMNodeInserted', function(e) {
+        if ( $(e.target).find('pre > code').length > 0 ) {
+            // console.log('new pre code added');
+            let codes = $(e.target).find("pre > code");
+            $.each(codes, function(idx, el){
+                hljs.highlightElement(el);
+            });
+        }
+    });
+    $("body").on('click','.hmenu a',function(e){
+        $('.hmenu a').removeClass("take");
+        $(this).toggleClass("take");
+        let tagName = $(this).data('h');          
+        $(`.list-card li`).hide();        
+        $(tagName).parent().show();
     });
     if (window.location.hash.length>1)
         loadView(window.location.hash);
