@@ -326,3 +326,31 @@ table.brief td:nth-child(1){
 .tag.css{
   background-color: #e7c1ff;
 }
+.success{
+  color: #57ab5a !important;
+}
+.fail{
+  color: #fe8443 !important;
+}
+.svgicon{
+  width: 24px;
+  height: 24px;
+  font-family: 'UbuntuMono Nerd Font Mono', monospace !important;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+.svgicon.svgspin {
+  fill: none;
+}
+.svgicon.octicon {
+  overflow: visible !important;
+  fill: currentColor;
+}
+.anim-rotate {
+  animation: rotate-keyframes 1s linear infinite;
+}
+@keyframes rotate-keyframes {
+  100% {
+    transform: rotate(360deg);
+  }
+}
