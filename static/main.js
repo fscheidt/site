@@ -33,7 +33,7 @@ function getData(){
     })
 }
 const app = {
-    version: '1.91',
+    version: '1.92',
     site: 'https://fscheidt.github.io/site',
     repo: 'https://github.com/fscheidt/site',
     title: 'WEB1',
@@ -82,8 +82,8 @@ function loadView(elHash){
     }
     else if($(entry_el).hasClass('remote')){
         let page = `${activate_content}.html`;
-        console.log(`Content: ${activate_content}`)
-        console.log(`Remote page: ${page}`)
+        // console.log(`Content: ${activate_content}`)
+        // console.log(`Remote page: ${page}`)
         let data_key = `data_${activate_content}`;
         let data_ss = sessionStorage.getItem(data_key);
         if(data_ss!=null && data_ss.length>0){
@@ -104,15 +104,17 @@ function loadView(elHash){
                     $.get( md_uri, function( data ) {          
                         var converter = new showdown.Converter();
                         $(".sidebar.remote").html(converter.makeHtml(data));
-                        if(!app.local){
-                            let uri_links = $(".sidebar.remote a");
-                            uri_links.each(function(idx, el){
-                                // console.log(el);
-                                let href = $(this).attr('href');
+                        let uri_links = $(".sidebar.remote a");
+                        uri_links.each(function(idx, el){
+                            // console.log(el);
+                            let href = $(this).attr('href');
+                            $(this).addClass(activate_content);
+                            if(!app.local){
                                 if (!href.startsWith(app.prefix))
-                                    $(this).attr('href',`${app.prefix}${href}`);
-                            });
-                        }
+                                    $(this).attr('href',`${app.prefix}${href}`);                            
+                            }
+                        });
+                        
                         sessionStorage.setItem(data_key, $("#remotePage").html());
                     },'text');
                 }else{
@@ -134,20 +136,28 @@ $(document).ready(function(){
 
     $("body").on('click','.sidebar.remote a',function(e){
         let md_uri = $(this).attr('href');
+        let lang = $(this).attr('class');
         $.get( md_uri, function( data ) {          
-            var converter = new showdown.Converter();
-            $(".md-content").html(converter.makeHtml(data));
-            
+            let converter = new showdown.Converter();
+            let el = $(converter.makeHtml(data));
+            $(el).attr('class',`${lang}`);
+            $(el).find('code').attr('class',`${lang}`);            
+            $(".md-content").html(el);
         },'text');
         e.stopPropagation();
         e.preventDefault();
     });
     $("#remotePage").on('DOMNodeInserted', function(e) {
         if ( $(e.target).find('pre > code').length > 0 ) {
-            // console.log('new pre code added');
+            let preEl = $(e.target).find("pre:first");
+            let lang = preEl.attr('class');
             let codes = $(e.target).find("pre > code");
+            // hljs.configure({ tabReplace: '  ' });
             $.each(codes, function(idx, el){
+                // console.log(el);
+                $(el).addClass(lang);
                 hljs.highlightElement(el);
+                // hljs.highlightElement(el, { tabReplace: '  ' });
             });
         }
     });

@@ -91,6 +91,7 @@ main.app{
 }
 .md-content pre{
   border: 1px solid white;
+  background: #fff;
   padding: 5px;
   
 }
