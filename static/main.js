@@ -2,7 +2,7 @@
 const clientData = {
     screen: `${window.screen.availWidth} x ${window.screen.availHeight}`,
     agent: navigator.userAgent.toLowerCase(),
-    tohtml: functio1366n(){
+    tohtml: function(){
         return `<p>${this.screen}</p><p>${this.agent}</p>`
     }
 }
