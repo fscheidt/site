@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="static/css/idea.css">
     <script src="static/jquery.js"></script>
     <script src="static/markdown/showdown.min.js"></script>
+    <script src="static/chroma.min.js"></script>
     <!-- <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css"> -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
@@ -24,6 +25,7 @@
         <li><a href="#css" class="remote">CSS</a></li>
         <li><a href="#js" class="remote">JS</a></li>
         <li><a href="#slides">Slides</a></li>
+        <li><a href="#cores">Cores</a></li>
         <li><a href="#text">Text</a></li>
         <li><a href="#images">Images</a></li>
         <li><a href="#tools" class="remote">Tools</a></li>
@@ -101,6 +103,24 @@
         <div id="slide-set" class="slides-group"></div>
     </div>
 
+    <div class="content cores">
+        <header>
+            <span class="logo">
+                <i class="fas fa-camera"></i>
+            </span>
+            <h1>Cores</h1>
+        </header>
+
+        <button id="generate">gerar cor</button>
+        <div class="color-table" style="padding: 10px 20px">
+            <div id="rndColor"></div>
+            <p>Escuro</p>
+            <div id="darkColor"></div>
+        </div>
+
+       
+    </div>
+
     <div class="content images">
         <header>
             <span class="logo">
@@ -109,6 +129,7 @@
             <h1>Images</h1>
         </header>
 
+        
         <div class="wrapper-cards">
 
             <figure>

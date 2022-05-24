@@ -134,6 +134,32 @@ $(document).ready(function(){
 
     app.loadData();
 
+    $("#generate").click(function(){    
+        $("#rndColor").html("");
+        let colors = Array.apply(null, new Array(10)).map(() => {return chroma.random();});
+        colors.forEach(el => {            
+            $("<div/>",{
+                text:el,
+                class:'cb',
+                style:`background:${el}`}).appendTo("#rndColor");
+        });
+    });
+    $("body").on('click','.cb',function(e){
+        $('#darkColor').html('');
+        let target = $(this).text();
+        let cset = [chroma(target).darken(),
+                    chroma(target).darken(2),
+                    chroma(target).darken(2.6)];
+        console.log(cset);
+        cset.forEach(el => {   
+        $("<div/>",{
+            text:el,
+            class:'cb',
+            style:`background:${el}`}).appendTo("#darkColor");
+        });
+        
+    });
+
     $("body").on('click','.sidebar.remote a',function(e){
         let md_uri = $(this).attr('href');
         let lang = $(this).attr('class');

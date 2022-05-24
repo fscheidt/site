@@ -335,6 +335,31 @@ table.brief td:nth-child(1){
 .pending{
   color: #a1a1a1 !important;
 }
+.color-table{
+  display: grid;
+  grid-template-rows: 3;
+
+}
+.box-color{
+  display: table-cell;
+  border: 2px solid black;
+  width: 128px;
+  height: 24px;
+  text-align: center;
+  vertical-align: middle;
+}
+.cb{
+  font-family: var(--mono-font);
+  display: table-cell;
+  border: 2px solid black;
+  width: 128px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+#rndColor{
+}
 .svgicon{
   width: 24px;
   height: 24px;
