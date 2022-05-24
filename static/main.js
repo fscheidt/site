@@ -144,22 +144,22 @@ $(document).ready(function(){
                 style:`background:${el}`}).appendTo("#rndColor");
         });
     });
-    $("body").on('click','.cb',function(e){
-        $('#darkColor').html('');
+    $("body").on('mouseover','.cb',function(e){
+        $('div.render-bx').html('');
+        $('div.palette').html('');
         let target = $(this).text();
-        let cset = [chroma(target).darken(),
-                    chroma(target).darken(2),
-                    chroma(target).darken(2.6)];
-        console.log(cset);
-        cset.forEach(el => {   
-        $("<div/>",{
-            text:el,
-            class:'cb',
-            style:`background:${el}`}).appendTo("#darkColor");
+        let color_set = [
+            chroma(target).darken(),chroma(target).darken(2),chroma(target).darken(2.6),
+            chroma(target).brighten(),chroma(target).brighten(2),chroma(target).brighten(3)
+        ];
+        color_set.forEach(el => {   
+            $("<div/>",{
+                text:el,
+                class:'cb2',
+                style:`background:${el}`}
+            ).appendTo("div.palette");
         });
-        
     });
-
     $("body").on('click','.sidebar.remote a',function(e){
         let md_uri = $(this).attr('href');
         let lang = $(this).attr('class');

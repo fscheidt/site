@@ -337,8 +337,9 @@ table.brief td:nth-child(1){
 }
 .color-table{
   display: grid;
-  grid-template-rows: 3;
-
+  grid-template-rows: auto;
+  justify-items: start;
+  grid-gap: 30px;
 }
 .box-color{
   display: table-cell;
@@ -348,7 +349,12 @@ table.brief td:nth-child(1){
   text-align: center;
   vertical-align: middle;
 }
-.cb{
+div.palette{
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  grid-gap: 20px;
+}
+.cb, .cb2{
   font-family: var(--mono-font);
   display: table-cell;
   border: 2px solid black;
@@ -357,8 +363,6 @@ table.brief td:nth-child(1){
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-}
-#rndColor{
 }
 .svgicon{
   width: 24px;
