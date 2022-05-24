@@ -1,1 +1,3 @@
 - [grid](/md/css/grid.md)
+- [display](/md/css/display.md)
+- [float](/md/css/float.md)

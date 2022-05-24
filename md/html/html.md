@@ -2,3 +2,4 @@
 - [footer](/md/html/footer.md)
 - [header](/md/html/header.md)
 - [section](/md/html/section.md)
+- [table](/md/html/table.md)
