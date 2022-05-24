@@ -19,6 +19,11 @@
             "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-aula-03-tabelas.pdf",
             "title": "Aula 03 - Tabelas",
             "aula": 3
-        }        
+        },
+        {
+            "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-aula-05-layout.pdf",
+            "title": "Aula 05 - Layout (div, float)",
+            "aula": 5
+        }          
     ]
 }
