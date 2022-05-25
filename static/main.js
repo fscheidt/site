@@ -33,7 +33,7 @@ function getData(){
     })
 }
 const app = {
-    version: '1.93',
+    version: '1.94',
     site: 'https://fscheidt.github.io/site',
     repo: 'https://github.com/fscheidt/site',
     title: 'WEB1',
@@ -139,7 +139,7 @@ $(document).ready(function(){
         let colors = Array.apply(null, new Array(10)).map(() => {return chroma.random();});
         colors.forEach(el => {            
             $("<div/>",{
-                text:el,
+                html:`<b>${el}</b>`,
                 class:'cb',
                 style:`background:${el}`}).appendTo("#rndColor");
         });
@@ -154,7 +154,7 @@ $(document).ready(function(){
         ];
         color_set.forEach(el => {   
             $("<div/>",{
-                text:el,
+                html:`<b>${el}</b>`,
                 class:'cb2',
                 style:`background:${el}`}
             ).appendTo("div.palette");

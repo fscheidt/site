@@ -9,7 +9,6 @@
   font-family: XCharter;
   src: url("/static/fonts/charter/XCharter-Roman.otf") format("opentype");
 }
-
 :root{
   --mono-font: "JetBrains mono";
   --base-font: 'Lato', sans-serif;
@@ -204,7 +203,6 @@ ul.menu a.active{
 }
 div.content{
   display: none;   
-  /* margin: 10px 10px 10px 20px; */
 }
 div.content.active{
   display: block;
@@ -266,7 +264,6 @@ div.wrapper-cards{
   div.wrapper-cards{   
     grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));   
   }
-  
 }
 div.md-content, #remoteContent{
   line-height: 2.0em;
@@ -282,6 +279,9 @@ figure{
     padding: 20px;
     border: 3px solid #cccccc;
     background: #f3f3f3;
+}
+#generate:hover{
+  border: 2px solid #6b1163;
 }
 figure img{
   width: 100%;
@@ -302,7 +302,6 @@ table.brief td:nth-child(1){
   text-align: right;
 }
 .list-card{
-  /* border: 1px solid blue;   */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -332,12 +331,16 @@ table.brief td:nth-child(1){
 .fail{
   color: #fe8443 !important;
 }
+#rndColor{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 .pending{
   color: #a1a1a1 !important;
 }
 .color-table{
   display: grid;
-  grid-template-rows: auto;
   justify-items: start;
   grid-gap: 30px;
 }
@@ -356,13 +359,20 @@ div.palette{
 }
 .cb, .cb2{
   font-family: var(--mono-font);
+    display: table;
+    border: 2px solid black;
+    padding: 0px 4px;
+    font-size: 0.8em;
+    width: fit-content;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.cb b, .cb2 b{
   display: table-cell;
-  border: 2px solid black;
-  width: 128px;
-  height: 50px;
-  text-align: center;
   vertical-align: middle;
-  cursor: pointer;
+  font-weight: 500;
 }
 .svgicon{
   width: 24px;
