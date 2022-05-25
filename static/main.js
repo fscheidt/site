@@ -194,6 +194,9 @@ $(document).ready(function(){
         $(`.list-card li`).hide();        
         $(tagName).parent().show();
     });
+    $("#clear-cache").bind("mouseover mouseout", (ev) => {
+        $("#clear-fa").toggleClass('fa-undo-alt fa-sync fa-spin');
+    });
     if (window.location.hash.length>1)
         loadView(window.location.hash);
     $(window).on('hashchange', function(e){
