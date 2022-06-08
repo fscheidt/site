@@ -1,13 +1,20 @@
 /* styles */
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Belgrano&display=swap');
 @font-face {
   font-family: XCharter;
   src: url("/static/fonts/charter/XCharter-Roman.otf") format("opentype");
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 :root{
   --mono-font: "JetBrains mono";
@@ -280,8 +287,11 @@ figure{
     border: 3px solid #cccccc;
     background: #f3f3f3;
 }
+button{
+  outline: none;
+}
 #generate:hover{
-  border: 2px solid #6b1163;
+  border: 2px solid #76279c;
 }
 figure img{
   width: 100%;
@@ -374,6 +384,10 @@ div.palette{
   vertical-align: middle;
   font-weight: 500;
 }
+#playlist li::before{
+  content: "\f144";
+  font-family: "Font Awesome 5 Free";
+}
 .svgicon{
   width: 24px;
   height: 24px;
@@ -395,4 +409,14 @@ div.palette{
   100% {
     transform: rotate(360deg);
   }
+}
+p.sonnet{
+  white-space: pre-line;
+  font-family: 'Belgrano', serif;
+  font-style: italic;
+  margin: 5px 0px 0px 40px;
+  line-height: 2.5em;
+}
+p.sonnet::first-letter {
+  font-size: 2em;
 }

@@ -24,6 +24,21 @@
             "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-aula-05-layout.pdf",
             "title": "Aula 05 - Layout (div, float)",
             "aula": 5
-        }          
+        },  
+        {
+          "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-aula-06-grid-layout.pdf",
+          "title": "Aula 06 - Grid layout",
+          "aula": 6
+        },
+        {
+          "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-formularios.pdf",
+          "title": "Aula 07 - Forms",
+          "aula": 7
+        },
+        {
+          "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-css-background",
+          "title": "Slides - css image background",
+          "aula": 8
+        }  
     ]
 }
