@@ -10,7 +10,7 @@ Por exemplo, considerando que temos a input abaixo, e queremos ler o valor digit
 ```
 
 Usando querySelector no javascript:
-```
+```javascript
 let nomeUsuario = document.querySelector('#nome').value;
 console.log(`nome do usuário: ${nomeUsuario}`);
 ```
