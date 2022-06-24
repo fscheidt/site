@@ -2,7 +2,7 @@
 
 Usando vetores ou listas no javascript
 
-```
+```javascript
 // define uma variável do tipo array:
 let paises = [];
 

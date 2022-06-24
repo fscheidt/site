@@ -106,6 +106,12 @@ main.app{
 .md-content h1{
   padding: 0px 0px 20px 0px;
 }
+.md-content h2, 
+.md-content h3, 
+.md-content h4,
+.md-content h5{
+  padding: 0px 0px 10px 0px;
+}
 .md-content{
   display: grid;
   grid-template-columns: 1fr;
@@ -116,6 +122,7 @@ main.app{
   border-radius: 7px;
   background: #fff;
   padding: 10px 0px 10px 20px;
+  margin: 10px 0px 30px 0px;
 }
 .md-content ul, .md-content ol{
   display: block;

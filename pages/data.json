@@ -31,14 +31,24 @@
           "aula": 6
         },
         {
-          "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-formularios.pdf",
+          "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-formularios.pptx.pdf",
           "title": "Aula 07 - Forms",
           "aula": 7
         },
         {
+          "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-javascript-p1.pdf",
+          "title": "Aula 08 - Introdução Javascript",
+          "aula": 8
+        },  
+        {
+          "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-aula-10-functions-and-events.pdf",
+          "title": "Aula 09 - Javascript: Funções e eventos",
+          "aula": 9
+        },  
+        {
           "url": "https://fscheidt.github.io/site/assets/pdf/tads-web-css-background.pdf",
           "title": "Slides - css image background",
-          "aula": 8
+          "aula": 20
         }  
     ]
 }
