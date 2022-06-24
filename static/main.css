@@ -21,7 +21,9 @@
   --base-font: 'Lato', sans-serif;
   --code-font: 'Fira Code', monospace;
   --base-font-size: 14px;
-  --link-color: navy;
+  --color-link-doc: rgb(15, 15, 100);
+  --color-bg-nav: #496781;
+  --color-link-nav: #f2f2f2;
   /* --base-font: 'Macondo', cursive; */
   /* --base-font: 'XCharter'; */
   /* --base-font: 'Noto Sans', sans-serif; */
@@ -52,13 +54,20 @@ body{
 }
 a{
   text-decoration: none;
-  border-bottom: 1px dotted navy;  
+  border-bottom: 1px dotted var(--color-bg-nav);  
 }
 a:visited{
-  color: var(--link-color);
+  color: var(--color-link-doc);
 }
 nav a:visited{
   color: white;
+}
+.sidebar.remote a {
+  color: var(--color-link-nav);
+  display: inline-block;
+  /* border-bottom: 0; */
+  cursor: pointer;
+  border-bottom: 1px dotted var(--color-link-nav);
 }
 main{
   width: 95%;
@@ -100,6 +109,7 @@ main.app{
 .md-content{
   display: grid;
   grid-template-columns: 1fr;
+  padding: 0px 0px 40px 0px;
 }
 .md-content pre{
   border: 3px solid #5c5e68;
@@ -107,12 +117,21 @@ main.app{
   background: #fff;
   padding: 10px 0px 10px 20px;
 }
+.md-content ul, .md-content ol{
+  display: block;
+  list-style-type: disc;
+  /* margin-block-start: 1em; */
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
 .md-content, #remoteContent{
   line-height: 2.0em;
 }
 nav.navbar{
   grid-area: menu;
-  background: #496781;
+  background: var(--color-bg-nav);
   padding: 10px;
 }
 div.conteudo{
@@ -155,9 +174,6 @@ header h1{
 header span.logo{
   font-size: 32px;
 }
-nav{
-  /* margin-bottom: 30px; */
-}
 ul.menu{
   padding: 0;
 }
@@ -167,7 +183,7 @@ ul.menu li{
 nav ul.menu li{
   display: inline-block;
   color: rgb(241, 238, 238);
-  background-color: #496781;
+  background-color: var(--color-bg-nav);
   border: 1px solid #041052;
   border-radius: 2px;
   margin-right: 10px;
@@ -245,7 +261,7 @@ header.cheader{
 }
 div.sidebar{
   grid-area: sidebar;
-  background: #c9fee5;
+  background: var(--color-bg-nav);
 }
 div.sidebar ul.menu li{
   color: #763535;
@@ -324,7 +340,7 @@ table.brief td:nth-child(1){
   gap: 10px;
 }
 .list-card li{
-  border: 3px solid #496781;
+  border: 3px solid var(--color-bg-nav);
   padding: 3px 7px;
 }
 .tag{

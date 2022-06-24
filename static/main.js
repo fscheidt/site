@@ -33,7 +33,7 @@ function getData(){
     })
 }
 const app = {
-    version: '1.94.1',
+    version: '1.94.2',
     site: 'https://fscheidt.github.io/site',
     repo: 'https://github.com/fscheidt/site',
     title: 'WEB1',
@@ -76,55 +76,40 @@ function loadView(elHash){
     let entry_el = $(`a[href='${elHash}']`);
     $(ui.nav_entry).removeClass('active');
     $(entry_el).addClass('active');
-    // console.log("activate_content: " + activate_content);
-    if(activate_content == 'slides'){
-        getData();
-    }
+    if(activate_content == 'slides'){ getData(); }
     else if($(entry_el).hasClass('remote')){
-        let page = `${activate_content}.html`;
-        // console.log(`Content: ${activate_content}`)
-        // console.log(`Remote page: ${page}`)
-        let data_key = `data_${activate_content}`;
-        let data_ss = sessionStorage.getItem(data_key);
-        if(data_ss!=null && data_ss.length>0){
-            // console.log(`\t[${data_key}] found on session`);
-            // console.log(`\t${data_ss.slice(0,120)}`)
-            $("#remotePage").html(data_ss);
-            // console.log(`\t[${data_key}] restored!`);
-        }
-        else{
-            // console.log(`[${data_key}] is Empty!!`);
-            $("#remotePage").load(`pages/${page} div.content`, function(){
-                // console.log('\nLOADING REMOTE\n');
-                if($("#remotePage").find('.sidebar.remote').length > 0){
-                    // console.log(`\t-> remote menu found`);
-                    let fname = $("#remotePage").find('.sidebar.remote:first').data('md');
-                    let md_uri = `${app.paths[activate_content]}/${fname}.md`;
-                    // console.log(`\t-> loading resource: ${md_uri}`);
-                    $.get( md_uri, function( data ) {          
-                        var converter = new showdown.Converter();
-                        $(".sidebar.remote").html(converter.makeHtml(data));
-                        let uri_links = $(".sidebar.remote a");
-                        uri_links.each(function(idx, el){
-                            // console.log(el);
-                            let href = $(this).attr('href');
-                            $(this).addClass(activate_content);
-                            if(!app.local){
-                                if (!href.startsWith(app.prefix))
-                                    $(this).attr('href',`${app.prefix}${href}`);                            
-                            }
-                        });
-                        
-                        sessionStorage.setItem(data_key, $("#remotePage").html());
-                    },'text');
-                }else{
-                    sessionStorage.setItem(data_key, $("#remotePage").html());
-                }
-            });
-        }
-        $("#remotePage").show();
-        $("#remotePage .content").show();
-        $("#remotePage .content").attr('display', 'block');
+      let page = `${activate_content}.html`;
+      let data_key = `data_${activate_content}`;
+      let data_ss = sessionStorage.getItem(data_key);
+      if(data_ss!=null && data_ss.length>0)
+        $("#remotePage").html(data_ss);        
+      else{
+        $("#remotePage").load(`pages/${page} div.content`, function(){
+          if($("#remotePage").find('.sidebar.remote').length > 0){
+              let fname = $("#remotePage").find('.sidebar.remote:first').data('md');
+              let md_uri = `${app.paths[activate_content]}/${fname}.md`;
+              $.get( md_uri, function( data ) {          
+                var converter = new showdown.Converter();
+                $(".sidebar.remote").html(converter.makeHtml(data));
+                let uri_links = $(".sidebar.remote a");
+                uri_links.each(function(idx, el){
+                  let href = $(this).attr('href');
+                  $(this).addClass(activate_content);
+                  if(!app.local){
+                    if (!href.startsWith(app.prefix))
+                      $(this).attr('href',`${app.prefix}${href}`);                            
+                  }
+                });
+                sessionStorage.setItem(data_key, $("#remotePage").html());
+              },'text');
+          }else{
+              sessionStorage.setItem(data_key, $("#remotePage").html());
+          }
+        });
+      }
+      $("#remotePage").show();
+      $("#remotePage .content").show();
+      $("#remotePage .content").attr('display', 'block');
     }
     $(ui.content).hide();
     $(`.${activate_content}`).fadeIn(700);
@@ -160,6 +145,9 @@ $(document).ready(function(){
             ).appendTo("div.palette");
         });
     });
+    $("body").on('click','.md-content pre',function(e){
+      $(this)[0].contentEditable = true;
+    });
     $("body").on('click','.sidebar.remote a',function(e){
         let md_uri = $(this).attr('href');
         let lang = $(this).attr('class');
@@ -178,12 +166,9 @@ $(document).ready(function(){
             let preEl = $(e.target).find("pre:first");
             let lang = preEl.attr('class');
             let codes = $(e.target).find("pre > code");
-            // hljs.configure({ tabReplace: '  ' });
             $.each(codes, function(idx, el){
-                // console.log(el);
                 $(el).addClass(lang);
                 hljs.highlightElement(el);
-                // hljs.highlightElement(el, { tabReplace: '  ' });
             });
         }
     });

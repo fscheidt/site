@@ -1,1 +1,2 @@
 - [array](/md/js/array.md)
+- [array](/md/js/selectors.md)
