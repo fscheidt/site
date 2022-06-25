@@ -301,7 +301,7 @@ div.sidebar ul.menu a{
   text-align: right;
 }
 article.cbody{
-  padding: 10px 20px;
+  padding: 10px 20px 30px 20px;
   grid-area: article;
   background: #e8f6f1;
   display: none;
@@ -319,7 +319,9 @@ div.wrapper-cards{
     grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));   
   }
 }
-
+.hbar{
+  margin: 20px 0px;
+}
 figure{
     border: 3px solid rosybrown;
     text-align: center;

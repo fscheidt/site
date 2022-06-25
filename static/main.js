@@ -12,37 +12,53 @@ const clientData = {
     }
 }
 function getData(){
-    $.getJSON( "pages/data.json", function( data ) {
-        $("#slide-set").html('');
-        $.each( data, function( key, val ) {
-            let slides = data[key];
-            slides.forEach(el => {
-                let pdf_el = `<object class="pdf" data="${el.url}" type='application/pdf'></object>`;
-                if(clientData.isAndroid){
-                    pdf_el = `<iframe class="gviewer" src="https://docs.google.com/gview?embedded=true&url=${el.url}&amp;embedded=true"></iframe>`;
-                }
-                $("<details/>", {                                
-                    class: 'sld',
-                    html: `<summary class="title">
-                    ${el.title}
-                    </summary>
-                    ${pdf_el}`
-                  }).appendTo("#slide-set");
-            });
-        });
-    })
+  $.getJSON( "pages/data.json", function( data ) {
+    $("#slide-set").html('');
+    $.each( data, function( key, val ) {
+      let slides = data[key];
+      slides.forEach(el => {
+        let pdf_el = `<object class="pdf" data="${el.url}" type='application/pdf'></object>`;
+        if(clientData.isAndroid)
+            pdf_el = `<iframe class="gviewer" src="https://docs.google.com/gview?embedded=true&url=${el.url}&amp;embedded=true"></iframe>`;
+        $("<details/>", {                                
+          class: 'sld',
+          html: `<summary class="title">
+          ${el.title}
+          </summary>
+          ${pdf_el}`
+        }).appendTo("#slide-set");
+      });
+    });
+  })
 }
 const app = {
-    version: '1.95.1',
+    version: '1.95.2',
     site: 'https://fscheidt.github.io/site',
-    repo: 'https://github.com/fscheidt/site',
     title: 'WEB1',
     prefix: '/site',
     local: false,
+    repo: {
+      data: null,
+      url: `https://github.com/fscheidt/site`,
+      api: `https://api.github.com/repos/fscheidt/site/branches/main`,
+      getData: function(){
+        return app.repo.data || app.repo.getApiData();
+      },
+      getApiData: function(){
+        fetch(app.repo.api)
+        .then(response => response.json())
+        .then(data => {
+          app.repo.data = data;
+          $("#app-last-commit").text(
+            new Date(data.commit.commit.author.date).toLocaleString('pt-br')
+          );
+        });
+      },
+    },
     paths: {
-            "html": "md/html",
-            "css": "md/css",
-            "js": "md/js"
+      "html": "md/html",
+      "css": "md/css",
+      "js": "md/js"
     },
     isLocal: function(url){
         return url.indexOf('localhost') !== -1 || url.indexOf('127.0.0.1') !== -1;
@@ -52,8 +68,9 @@ const app = {
         this.local = this.isLocal(document.location.href);
         $("#app-version").text(this.version);
         $("#app-site").text(this.site).attr('href',this.site);
-        $("#app-repo").text(app.repo).attr('href',app.repo);
+        $("#app-repo").text(app.repo.url).attr('href',app.repo.url);
         $("#app-local").text(this.local);
+        app.repo.getData();
         $("#app-client").html(clientData.tohtml());
         if(this.local){
             this.prefix = '';
