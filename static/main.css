@@ -79,13 +79,19 @@ main{
   margin-bottom: 10px;
   
 }
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   main{
     padding: 10px 20px 0px 20px;
     border-top: 3px solid rgb(168, 161, 152);
   }
   main > *{
     font-size: 1.4em;
+  }
+  .navbar i.res{
+    display: none;
+  }
+  .navbar span.res{
+    display: inline-block;
   }
 }
 @media (max-width: 1024px) {
@@ -94,6 +100,12 @@ main{
   }
   .md-content pre{
     white-space: pre-wrap;
+  }
+  .navbar i.res{
+    display: inline-block;
+  }
+  .navbar span.res{
+    display: none;
   }
 }
 main.app{

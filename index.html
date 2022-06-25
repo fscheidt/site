@@ -21,17 +21,56 @@
 <nav class="navbar">
     <ul class="menu">
         <li><a href="#index" class="active"><i class="fas fa-home"></i></a></li>
-        <li><a href="#html" class="remote">HTML</a></li>
+        <li>
+          <a href="#html">
+            <i class="fas fa-code res"></i>
+            <span class="res">HTML</span>
+          </a>
+        </li>
         <li><a href="#css" class="remote">CSS</a></li>
         <li><a href="#js" class="remote">JS</a></li>
-        <li><a href="#slides">Slides</a></li>
-        <li><a href="#cores">Cores</a></li>
-        <li><a href="#text">Text</a></li>
-        <li><a href="#images">Images</a></li>
-        <li><a href="#forms">Forms</a></li>
-        <li><a href="#tools" class="remote">Tools</a></li>
-        <li><a href="#info"><i class="fas fa-info-circle"></i></a></li>            
-        <li id="clear-cache"><a onclick="app.restore();"><i id="clear-fa" class="fas fa-undo-alt"></i></a></li>            
+        
+        <li>
+          <a href="#slides" title="pdf slides">
+            <!-- <i class="fas fa-file-pdf res"></i> -->
+            <i class="fas fa-chalkboard res"></i>
+            <span class="res">slides</span>
+          </a>
+        </li>
+        <li>
+          <a href="#cores" title="css colors generator">
+            <i class="fas fa-fill-drip res"></i>
+            <span class="res">cores</span>
+          </a>
+        </li>
+        <li>
+          <a href="#text" title="text and paragraphs">
+            <i class="fas fa-paragraph res"></i>
+            <span class="res">text</span>
+          </a>
+        <li>
+          <a href="#images" title="images">
+            <i class="fas fa-images res"></i>
+            <span class="res">images</span>
+          </a>
+        </li>
+        <li>
+          <a href="#forms" title="formularios">
+            <i class="fas fa-id-card res"></i>
+            <span class="res">forms</span>
+          </a>
+        </li>
+        <li>
+          <a href="#tools" title="material extra">
+            <i class="fas fa-book res"></i>
+            <span class="res">tools</span>
+          </a>
+        </li>
+        <li>
+          <a href="#info">
+            <i class="fas fa-info-circle"></i>
+          </a>
+        </li>            
         
     </ul>
 </nav>
@@ -49,7 +88,11 @@
         </header>        
         <table class="brief">
             <tr>
-                <td>Site</td>
+                <td>Site 
+                  <a id="clear-cache" onclick="app.restore();">
+                    <i id="clear-fa" class="fas fa-undo-alt"></i>
+                  </a>
+                </td>
                 <td><a id="app-site" target="_blank" href="#"></a></td>
             </tr>
             <tr>

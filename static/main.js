@@ -33,7 +33,7 @@ function getData(){
     })
 }
 const app = {
-    version: '1.94.2',
+    version: '1.95.1',
     site: 'https://fscheidt.github.io/site',
     repo: 'https://github.com/fscheidt/site',
     title: 'WEB1',
