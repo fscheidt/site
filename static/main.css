@@ -23,6 +23,7 @@
   --base-font-size: 14px;
   --color-link-doc: rgb(15, 15, 100);
   --color-bg-nav: #496781;
+  --color-bg-sidebar: #f7f7f7;
   --color-link-nav: #f2f2f2;
   /* --base-font: 'Macondo', cursive; */
   /* --base-font: 'XCharter'; */
@@ -39,7 +40,7 @@ xmp{
 pre, code{
   font-family: var(--code-font);
 }
-h1,h2,h3,h4,h5,h6{margin: 0;}
+h1,h2,h3,h4,h5,h6{ margin: 0 }
 ul, ol{
   list-style: none;
   margin: 0;
@@ -115,7 +116,7 @@ main.app{
   "conteudo";
 }
 .md-content h1{
-  padding: 0px 0px 20px 0px;
+  padding: 0;
 }
 .md-content h2, 
 .md-content h3, 
@@ -164,7 +165,7 @@ header{
   display: grid;
   grid-template-columns: 56px 1fr;
   align-items: center;
-  margin: 20px 0px;
+  margin: 1rem 0;
 }
 iframe.gviewer{
   width: 100%;
@@ -186,7 +187,7 @@ dt{
 }
 header h1{
   font-family: 'Noto Sans', sans-serif;
-  font-size: 2.2em;
+  font-size: 1.6em;
   font-weight: 700;
 }
 header span.logo{
@@ -279,10 +280,8 @@ header.cheader{
 }
 div.sidebar{
   grid-area: sidebar;
-  /* background: var(--color-bg-nav); */
-  background: #dfdfdf;
+  background: var(--color-bg-sidebar);
   place-self: baseline;
-  margin-top: .8rem;
   border: 1px solid #b8b8b8;
   filter: drop-shadow(1px 2px 2px #3f3f3f);
 }
@@ -305,9 +304,9 @@ div.sidebar ul.menu a{
   text-align: right;
 }
 article.cbody{
-  padding: 10px 20px 30px 20px;
+  padding: 0 1rem 0 2.5rem;
   grid-area: article;
-  background: #e8f6f1;
+  /* background: #e8f6f1; */
   display: none;
 }
 article.cbody.active{
