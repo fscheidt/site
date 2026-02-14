@@ -353,6 +353,7 @@ table.brief td:nth-child(1){
   color: navy;
   font-weight: bold;
   text-align: right;
+  vertical-align: top;
 }
 .list-card{
   display: flex;
