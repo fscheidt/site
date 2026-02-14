@@ -32,7 +32,7 @@ function getData(){
   })
 }
 const app = {
-    version: '1.95.3',
+    version: '1.96.0',
     site: 'https://fscheidt.github.io/site',
     title: 'WEB1',
     prefix: '/site',
@@ -74,7 +74,7 @@ const app = {
         $("#app-client").html(clientData.tohtml());
         if(this.local){
             this.prefix = '';
-            this.title = `🚩 ${this.title}`;
+            this.title = `${this.title}`;
         }
     },    
     restore: function(){
@@ -130,7 +130,7 @@ function loadView(elHash){
     }
     $(ui.content).hide();
     $(`.${activate_content}`).fadeIn(700);
-    document.title = `${app.title} ➱ ${activate_content}`;
+    document.title = `${app.title} [${activate_content}]`;
 }
 $(document).ready(function(){
 
